@@ -16,10 +16,10 @@
 3. bin/kafka-server-start.sh config/server.properties // broker
 
 ## topic 생성
+- 생성  
 bin/kafka-topics.sh --create --topic [topic_name] --bootstrap-server [서버 번호]  
 ex) bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092  
-(+)  
-//Topic 구독 현황 확인하기
+- Topic 구독 현황 확인하기  
 bin/kafka-topics.sh --describe --topic [topic_name] --bootstrap-server [서버 번호]  
 
 ## 간단한 메세지 주고 받기
