@@ -17,7 +17,7 @@
 
 ## topic 생성
 - 생성  
-`bin/kafka-topics.sh --create --topic [topic_name] --bootstrap-server [서버 번호]`  
+`bin/kafka-topics.sh --create --topic [topic_name] --bootstrap-server [IP]:[PORT]`  
 ex) bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092  
 (+) bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092  --partitions 4 --replication-factor 2  
  => partitions: topic 안에 partition 수  
@@ -25,16 +25,16 @@ ex) bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092
 (+) kafka-topics.sh --bootstrap-server localhost:9092 --topic test --describe    
  => 파티션 나뉜 거 확인 가능  
 - Topic 구독 현황 확인하기  
-`bin/kafka-topics.sh --describe --topic [topic_name] --bootstrap-server [서버 번호]`  
+`bin/kafka-topics.sh --describe --topic [topic_name] --bootstrap-server [IP]:[PORT]`  
 
 ## 간단한 메세지 주고 받기
 - 메세지 보내기  
-`bin/kafka-console-producer.sh --topic [topic_name] --bootstrap-server [서버 번호]`  
+`bin/kafka-console-producer.sh --topic [topic_name] --bootstrap-server [IP]:[PORT]`  
 - 메세지 받기  
-`bin/kafka-console-consumer.sh --topic [topic_name] --from-beginning --bootstrap-server [서버 번호]`   
+`bin/kafka-console-consumer.sh --topic [topic_name] --from-beginning --bootstrap-server [IP]:[PORT]`   
 
 ## 추가 명령어 
 - 생성된 topic list 확인  
-`bin/kafka-topics.sh --list --bootstrap-server [서버 번호]`   
+`bin/kafka-topics.sh --list --bootstrap-server [IP]:[PORT]`   
 - 기존 topic 제거  
 `bin/kafka-topics.sh --delete --zookeeper localhost --topic [topic_name]`
