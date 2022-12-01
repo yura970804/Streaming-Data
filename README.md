@@ -6,9 +6,9 @@
 
 ## Install Kafka
 1. download  
-  [download kafka](https://archive.apache.org/dist/kafka/2.8.0/kafka_2.13-2.8.0.tgz)
+  `wget "https://archive.apache.org/dist/kafka/2.8.0/kafka_2.13-2.8.0.tgz"`   
 2. unzip   
-  tar -xzf kafka_2.13-2.8.0.tgz
+  `tar -xzf kafka_2.13-2.8.0.tgz`
 
 ## broker, zookeeper 실행
 1. `cd kafka_2.13-2.8.0`
