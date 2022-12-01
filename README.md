@@ -19,11 +19,11 @@
 - 생성  
 `bin/kafka-topics.sh --create --topic [topic_name] --bootstrap-server [서버 번호]`  
 ex) bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092  
-(+) bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092  --partitions 4 --replication-factor 2
- => partitions: topic 안에 partition 수 
- => replication-factor: 복사?
-(+) kafka-topics.sh --bootstrap-server localhost:9092 --topic test --describe  
- => 파티션 나뉜 거 확인 가능
+(+) bin/kafka-topics.sh --create --topic test --bootstrap-server localhost:9092  --partitions 4 --replication-factor 2  
+ => partitions: topic 안에 partition 수  
+ => replication-factor: 복사?  
+(+) kafka-topics.sh --bootstrap-server localhost:9092 --topic test --describe    
+ => 파티션 나뉜 거 확인 가능  
 - Topic 구독 현황 확인하기  
 `bin/kafka-topics.sh --describe --topic [topic_name] --bootstrap-server [서버 번호]`  
 
