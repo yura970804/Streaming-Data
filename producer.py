@@ -6,18 +6,22 @@ import twitter
 import csv
 import os
 from json import dumps, loads
+import argparse
+
 
 import pandas as pd
 
-topic_name = 'test'
-data = pd.read_csv("./november_2021_COVID-19_Twitter_Streaming_Dataset.csv")
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--file_path', type=str, default = '1', help='file number')
+parser.add_argument('--topic_name', type=str, default ='test', help='topic name')
 
-# snowflake id -> 시간 형태로 바꿔주는 함수
-def find_tweet_timestamp_post_snowflake(tid):
-    offset = 1288834974657
-    tstamp = (tid >> 22) + offset
-    return tstamp
+args = parser.parse_args()
 
+file_path = f'data{args.file_path}.csv'
+topic_name = args.topic_name
+print('file_path: ', file_path)
+print('topic_name: ',topic_name)
+data = pd.read_csv(file_path)
 
 # producer 객체 생성
 # acks 0 -> 빠른 전송우선, acks 1 -> 데이터 정확성 우선
@@ -30,13 +34,11 @@ start = time.time()
 
 # for i in range(len(data)):
 for i in range(100):
-    twitter_snowflake_id = data.loc[i,'_id']
-    origin_timestamp = find_tweet_timestamp_post_snowflake(twitter_snowflake_id)
-    twitted_time = datetime.fromtimestamp(origin_timestamp/1000)
-    twitted_time = str(twitted_time)
-    producer.send(topic_name,twitted_time) # topic_name, item
+    tid = data.loc[i,'_id']
+    print(tid)
+    producer.send(topic_name,str(tid)) # topic_name, item
     producer.flush() #queue에 있는 데이터를 보냄
-
+    
 end = time.time() - start
 print(end)
 
