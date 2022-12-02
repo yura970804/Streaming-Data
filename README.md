@@ -9,6 +9,8 @@
   `wget "https://archive.apache.org/dist/kafka/2.8.0/kafka_2.13-2.8.0.tgz"`   
 2. unzip   
   `tar -xzf kafka_2.13-2.8.0.tgz`
+3. install python module
+  `pip install kafka-python`
 
 ## broker, zookeeper 실행
 1. `cd kafka_2.13-2.8.0`
