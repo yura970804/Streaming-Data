@@ -1,4 +1,5 @@
 # Streaming-Data
+실시간으로 들어오는 트위터 snowflake id로부터 유의미한 정보를 추출하여 elasticsearch를 통해 요약해주는 시스템 구축
 ## Data
 [tweet_ids](https://stream.covid19misinfo.org/tweet_ids)  
 <img src = 'https://user-images.githubusercontent.com/62591011/204225850-f155b217-e793-494b-89a1-fe577a7a76fa.png' width=30%>
