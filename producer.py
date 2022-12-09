@@ -8,7 +8,6 @@ import os
 from json import dumps, loads
 import argparse
 
-
 import pandas as pd
 
 parser = argparse.ArgumentParser(description='Process some integers.')
@@ -32,11 +31,11 @@ producer = KafkaProducer(acks=0,
 
 start = time.time()
 
-# for i in range(len(data)):
-for i in range(100):
+for i in range(len(data)):
+# for i in range(100):
     tid = data.loc[i,'_id']
-    print(tid)
-    producer.send(topic_name,str(tid)) # topic_name, item
+    print(i, tid)
+    producer.send(topic_name, str(tid), partition=int(args.file_path)-1) # topic_name, item
     producer.flush() #queue에 있는 데이터를 보냄
     
 end = time.time() - start
